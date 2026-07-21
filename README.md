@@ -1,0 +1,1 @@
+# hrmn-soccer-data-provider
