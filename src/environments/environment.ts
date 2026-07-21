@@ -2,13 +2,7 @@
 // Loaded files: .env
 export const environment = {
   "production": false,
-  "mode": "test",
   "appName": "HRMN Soccer Data Provider",
-  "apiUrl": "http://localhost:3000",
-  "apiVersion": "v1",
-  "variables": {
-    "NG_APP_API_URL": "http://localhost:3000",
-    "NG_APP_API_VERSION": "v1",
-    "NG_APP_NAME": "HRMN Soccer Data Provider"
-  }
+  "sportDbBaseUrl": "https://api.sportdb.dev",
+  "sportDbApiKey": ""
 } as const;
