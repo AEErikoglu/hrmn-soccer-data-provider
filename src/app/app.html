@@ -1,0 +1,120 @@
+<div class="min-h-screen px-4 py-6 sm:px-6 lg:px-8">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6">
+    <mat-toolbar
+      class="!rounded-[28px] !bg-slate-950/85 !px-6 !text-slate-50 shadow-2xl shadow-cyan-950/20"
+    >
+      <span class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">
+        Angular Starter
+      </span>
+      <span class="ml-4 text-lg font-semibold sm:text-xl">{{ title() }}</span>
+      <span
+        class="ml-auto rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em]"
+      >
+        {{ environment.mode }}
+      </span>
+    </mat-toolbar>
+
+    <section class="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.95fr)]">
+      <mat-card
+        class="hero-panel !rounded-[32px] !border !border-white/50 !bg-white/78 shadow-2xl shadow-slate-200/60"
+      >
+        <mat-card-content class="p-8 sm:p-10">
+          <span
+            class="inline-flex rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700"
+          >
+            Ready for delivery
+          </span>
+
+          <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+            Standalone Angular with Tailwind, Material, and `.env` integration.
+          </h1>
+
+          <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            This starter is prewired for modern Angular development, with utility-first styling,
+            Material components, and build-time environment generation from `.env` files.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            @for (pill of featurePills; track pill) {
+              <mat-chip class="!bg-slate-900/6 !text-slate-700">{{ pill }}</mat-chip>
+            }
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <button mat-flat-button type="button">Material is ready</button>
+            <button mat-stroked-button type="button">Tailwind is active</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card
+        class="config-panel !rounded-[32px] !border !border-slate-200/80 !bg-slate-950/84 !text-slate-50 shadow-2xl shadow-slate-900/20"
+      >
+        <mat-card-content class="p-8">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Environment snapshot
+          </p>
+
+          <div class="mt-5 grid gap-3">
+            <div class="rounded-3xl border border-white/10 bg-white/6 p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Application name</p>
+              <p class="mt-2 text-lg font-semibold text-white">{{ environment.appName }}</p>
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-white/6 p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-400">API URL</p>
+              <p class="mt-2 break-all font-mono text-sm text-cyan-100">{{ environment.apiUrl }}</p>
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-white/6 p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Resolved endpoint</p>
+              <p class="mt-2 break-all font-mono text-sm text-cyan-100">{{ apiEndpoint() }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <section class="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <mat-card class="!rounded-[28px] !border !border-white/50 !bg-white/78 shadow-xl shadow-slate-200/40">
+        <mat-card-content class="p-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">
+            Build flow
+          </p>
+          <p class="mt-4 text-2xl font-semibold tracking-tight text-slate-950">
+            `.env` values are generated before Angular runs.
+          </p>
+          <mat-divider class="!my-6"></mat-divider>
+          <div class="space-y-4 text-sm leading-7 text-slate-600">
+            <p>`npm start` writes `src/environments/environment.ts` from your `.env` file, then starts `ng serve`.</p>
+            <p>`npm run build` regenerates the environment in production mode before creating the optimized bundle.</p>
+            <p>Only variables prefixed with `NG_APP_` are exposed to the browser app.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="!rounded-[28px] !border !border-white/50 !bg-white/78 shadow-xl shadow-slate-200/40">
+        <mat-card-content class="p-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">
+            Exposed variables
+          </p>
+
+          @if (envEntries.length > 0) {
+            <div class="mt-6 grid gap-3">
+              @for (entry of envEntries; track entry[0]) {
+                <div class="rounded-3xl border border-slate-200 bg-slate-50/85 p-4">
+                  <p class="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">{{ entry[0] }}</p>
+                  <p class="mt-2 break-all font-mono text-sm text-slate-900">{{ entry[1] }}</p>
+                </div>
+              }
+            </div>
+          } @else {
+            <p class="mt-6 text-sm text-slate-600">
+              No `NG_APP_` variables were found. Add them to `.env` and restart the app.
+            </p>
+          }
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </div>
+</div>
