@@ -1,0 +1,10 @@
+{
+  "/sportdb": {
+    "target": "https://api.sportdb.dev",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/sportdb": ""
+    }
+  }
+}

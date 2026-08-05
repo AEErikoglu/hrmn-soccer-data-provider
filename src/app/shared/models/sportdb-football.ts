@@ -6,6 +6,11 @@ export interface SportDbPagedResponse<TResult> {
   readonly updatedAt: string;
 }
 
+export interface SportDbCountry {
+  readonly id: string;
+  readonly name: string;
+}
+
 export interface SportDbClubReference {
   readonly id: string;
   readonly name: string;
